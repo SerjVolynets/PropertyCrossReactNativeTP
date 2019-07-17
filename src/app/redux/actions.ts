@@ -13,6 +13,11 @@ export const onSuccessfulRequest = (responseProperty, foundLocation) => ({
   }
 });
 
+export const onError = (value) => ({
+  type: types.ON_ERROR,
+  payload: value,
+})
+
 export function getRequest(stateLocation) {
   return (dispatch) => {
     fetch(`https://api.nestoria.co.uk/api?encoding=json&foo=bar&pretty=1&action=search_listings&country=uk&listing_type=buy&place_name=${stateLocation}`)

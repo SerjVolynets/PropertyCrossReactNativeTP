@@ -26,12 +26,14 @@ class MainPage extends Component {
 
   showSearchReasult = () => {
     if(this.props.showResult) {
-      return <SearchResult name={this.props.foundLocation} onPress={() => this.props.navigation.navigate('SearchPage')}/>
-    }
+      return (
+      <View>
+          <Text style={style.textDescriptionStyle}>Please select a location below:</Text>
+          <SearchResult name={this.props.foundLocation} onPress={() => this.props.navigation.navigate('SearchPage')}/>
+      </View>)}
     if(this.props.showError) {
       return <SearchResult name={this.props.error}/>
     }
-    
   };
 
   render() {
@@ -73,6 +75,7 @@ function mapStateToProps(state) {
     error: state.error,
     checkForSearch: state.checkForSearch,
     showError: state.showError,
+    responseProperty: state.responseProperty
   };
 }
 

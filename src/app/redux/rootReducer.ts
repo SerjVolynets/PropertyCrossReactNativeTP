@@ -31,6 +31,17 @@ export default function rootReducer(state = initialState, actions) {
         error: 'Sorry not found ' + actions.payload
       }
     }
+    case types.ADD_DATA_WITH_CURRENT_PROPERTY: {
+      const dataOfCurrentProperty2 = {
+        src: state.responseProperty[actions.payload].img_url,
+        price: state.responseProperty[actions.payload].price,
+        dis: state.responseProperty[actions.payload].summary,
+      };
+      return {
+        ...state,
+        dataOfCurrentProperty: dataOfCurrentProperty2,
+      };
+    }
     default:
       return state;
   }

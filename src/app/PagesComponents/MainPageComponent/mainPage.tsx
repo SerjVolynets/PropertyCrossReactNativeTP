@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { addValueInput, getRequest } from '../../redux/actions'
 import { style } from './style'
 import SearchResult from '../СomponentsAssistants/searchResultElem/searchResultElem'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class MainPage extends Component {
 

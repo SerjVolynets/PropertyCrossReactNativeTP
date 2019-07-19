@@ -3,21 +3,35 @@ import { connect } from 'react-redux'
 import { Text, View, Button } from 'react-native'
 import ListResultToken from '../СomponentsAssistants/listResultToken/listReasultToken'
 import { style } from './style'
-import { ScrollView } from 'react-native-gesture-handler';
-
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import {addDataWithCurrentProperty} from '../../redux/actions'
 class SearchResultPage extends Component {
+
+  static navigationOptions = {
+    title: 'Back to Main Page',
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  };
+
   renderPart = () => {
     return (
       this.props.responseProperty.map((obj, index) => (
+          <TouchableOpacity onPress={() => (this.props.addDataWithCurrentProperty(index), this.props.navigation.navigate('CurrentPage'))}>
           <ListResultToken
-            key={index}
+            key={obj.index}
             src={obj.img_url}
             name={obj.price}
             dis={obj.title}
-          />
+            />
+          </TouchableOpacity>
       ))
     );
   }
+
   render() {
     return (
       <View style={style.mainContainer}>
@@ -41,5 +55,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {
+export default connect(mapStateToProps, {addDataWithCurrentProperty
 })(SearchResultPage);

@@ -18,6 +18,11 @@ export const onError = (value) => ({
   payload: value,
 })
 
+export const addDataWithCurrentProperty = (value) => ({
+  type: types.ADD_DATA_WITH_CURRENT_PROPERTY,
+  payload: value
+})
+
 export function getRequest(stateLocation) {
   return (dispatch) => {
     fetch(`https://api.nestoria.co.uk/api?encoding=json&foo=bar&pretty=1&action=search_listings&country=uk&listing_type=buy&place_name=${stateLocation}`)

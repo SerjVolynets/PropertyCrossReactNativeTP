@@ -20,10 +20,10 @@ class SearchResultPage extends React.Component <{responseProperty: any,addDataWi
 
   renderPart = () => {
     return (
-      this.props.responseProperty.map((obj: { index: any; img_url: any; price: any; title: any; }, index: any) => (
-          <TouchableOpacity onPress={() => (this.props.addDataWithCurrentProperty(index), this.props.navigation.navigate('CurrentPage'))}>
+      this.props.responseProperty.map((obj: { img_url: any; price: any; title: any; latitude: any; longitude: any;  }, index: any) => (
+          <TouchableOpacity onPress={() => (this.props.addDataWithCurrentProperty(index), this.props.navigation.navigate('CurrentPage'))} key={obj.latitude+index}>
           <ListResultToken
-            key={index}
+            key={obj.longitude + index}
             src={obj.img_url}
             name={obj.price}
             dis={obj.title}

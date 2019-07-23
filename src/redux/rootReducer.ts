@@ -33,7 +33,7 @@ export default function rootReducer(state = initialState, actions: { type: any; 
     }
     case types.ADD_DATA_WITH_CURRENT_PROPERTY: {
       const dataOfCurrentProperty2 = {
-        key: state.responseProperty[actions.type].key,
+        key: actions.payload,
         src: state.responseProperty[actions.payload].img_url,
         price: state.responseProperty[actions.payload].price,
         dis: state.responseProperty[actions.payload].summary,

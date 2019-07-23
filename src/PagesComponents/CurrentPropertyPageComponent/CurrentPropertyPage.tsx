@@ -18,7 +18,6 @@ class CurrentPropertyPage extends React.Component<{dataOfCurrentProperty:any}>{
     return (
       <View style={style.mainContainer}>
         <ListResultToken
-        key={this.props.dataOfCurrentProperty.key}
         src={this.props.dataOfCurrentProperty.src}
         name={this.props.dataOfCurrentProperty.price}
         dis={this.props.dataOfCurrentProperty.dis}

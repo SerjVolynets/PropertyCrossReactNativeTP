@@ -1,9 +1,20 @@
 import * as types from './types';
+import {AsyncStorage} from 'react-native';
+
+const getData = async () => {
+  try {
+    const value = await AsyncStorage.getItem('@storage_Key')
+    return value
+  } catch(e) {
+    
+  }
+}
 
 const initialState = <any>{
   valueInput: '',
   showResult: false,
   showError: false,
+  favoritesList: getData(),
 };
 
 export default function rootReducer(state = initialState, actions: { type: any; payload: any; }) {

@@ -1,20 +1,32 @@
 import * as types from './types';
 import {AsyncStorage} from 'react-native';
 
-const getData = async () => {
+
+// function getData(){
+//     AsyncStorage.setItem('storage_Key','hi');
+//     AsyncStorage.getItem('storage_Key').then((token:any)=>{
+//     let value = token;
+//     return value;
+//     }) 
+// }
+async function retrieveItem() {
   try {
-    const value = await AsyncStorage.getItem('@storage_Key')
-    return value
-  } catch(e) {
-    
+    const retrievedItem:any =  await AsyncStorage.getItem('storage_Key');
+    // const item = JSON.parse(retrievedItem);
+    return retrievedItem;
+  } catch (error) {
+    console.log(error.message);
   }
+  return
 }
+let test = retrieveItem();
+console.log(test);
 
 const initialState = <any>{
   valueInput: '',
   showResult: false,
   showError: false,
-  favoritesList: getData(),
+  favoritesList: retrieveItem(),
 };
 
 export default function rootReducer(state = initialState, actions: { type: any; payload: any; }) {

@@ -1,12 +1,17 @@
 import * as React from 'react'
 import { Text, View, TextInput, Button } from 'react-native'
 import { connect } from 'react-redux'
-import { addValueInput, getRequest } from '../../redux/actions'
+import { addValueInput, getRequest, createFavListFromAsyncStorage } from '../../redux/actions'
+import getData from '../../helpres/asyncGetData'
 import { style } from './style'
 import SearchResult from '../СomponentsAssistants/searchResultElem/searchResultElem'
 
 
-class MainPage extends React.Component <{valueInput:any,getRequest:any,showResult:any,foundLocation:any,navigation:any,showError:any,error:any,addValueInput:any }>{
+class MainPage extends React.Component <{valueInput:any,getRequest:any,showResult:any,foundLocation:any,navigation:any,showError:any,error:any,addValueInput:any,createFavListFromAsyncStorage:any }>{
+ 
+  componentDidMount() {
+    getData().then((value)=>{this.props.createFavListFromAsyncStorage(value)}); 
+  }
 
   static navigationOptions = {
     title: 'Property Cross',
@@ -82,5 +87,6 @@ function mapStateToProps(state: { valueInput: any; showResult: any; foundLocatio
 
 export default connect(mapStateToProps, {
   addValueInput,
-  getRequest
+  getRequest,
+  createFavListFromAsyncStorage,
 })(MainPage);

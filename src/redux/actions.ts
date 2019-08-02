@@ -35,3 +35,8 @@ export function getRequest(stateLocation: any) {
       });
   };
 }
+
+export const createFavListFromAsyncStorage = (value:any) => ({
+  type: types.CREATE_FAV_LIST_FROM_ASYNC_STORAGE,
+  payload: value
+})

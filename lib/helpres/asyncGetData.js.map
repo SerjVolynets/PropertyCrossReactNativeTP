@@ -1,0 +1,1 @@
+{"version":3,"file":"asyncGetData.js","sourceRoot":"","sources":["../../src/helpres/asyncGetData.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,+CAA0C;AAExC,SAAe,OAAO;;QACrB,MAAM,KAAK,GAAQ,MAAM,2BAAY,CAAC,OAAO,CAAC,YAAY,CAAC,CAAA;QACtD,IAAI,GAAG,GAAG,IAAI,CAAC,KAAK,CAAC,KAAK,CAAC,CAAC;QAC5B,OAAO,GAAG,CAAC;IACjB,CAAC;CAAA;AAED,kBAAe,OAAO,CAAC"}

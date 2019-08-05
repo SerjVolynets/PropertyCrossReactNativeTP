@@ -3,17 +3,28 @@ import { View, Button } from 'react-native';
 import { connect } from 'react-redux';
 import ListResultToken from '../СomponentsAssistants/listResultToken/listReasultToken'
 import { style } from './style';
+import {addToFavorite,deleteFromFavorite} from '../../redux/actions'
 
-class CurrentPropertyPage extends React.Component<{dataOfCurrentProperty:any}>{
+class CurrentPropertyPage extends React.Component<{dataOfCurrentProperty:any, favoritesList:any, addToFavorite:any, deleteFromFavorite:any}>{
   static navigationOptions = {
     title: 'Back to Result List',
     headerStyle: {
-      backgroundColor: '#f4511e',
+      backgroundColor: '#3D6E91',
     },
     headerTitleStyle: {
       fontWeight: 'bold',
+      fontFamily: 'sans-serif'
     },
-  };  
+  };
+
+  renderPart = () => {
+    const isAdded = this.props.favoritesList.some((el: { src: string; }) => el.src === this.props.dataOfCurrentProperty.src);
+    if (isAdded) {
+      return <Button title="Delete from Favorites" onPress={()=> {this.props.deleteFromFavorite()}} color="red"/>;
+    }
+    return <Button title="Add to Favorites" onPress={()=> {this.props.addToFavorite()}}/>;
+  }; 
+
   render() {
     return (
       <View style={style.mainContainer}>
@@ -22,29 +33,20 @@ class CurrentPropertyPage extends React.Component<{dataOfCurrentProperty:any}>{
         name={this.props.dataOfCurrentProperty.price}
         dis={this.props.dataOfCurrentProperty.dis}
         />
-        <Button 
-          title='Add to Favorite'
-          onPress={()=> {}}
-        />
+       {this.renderPart()}
       </View>
     );
   }
 }
 
-function mapStateToProps(state: { valueInput: any; showResult: any; foundLocation: any; favoritesList: any; data: any; error: any; checkForSearch: any; showError: any; responseProperty: any; dataOfCurrentProperty: any; }) {
+function mapStateToProps(state: { favoritesList: any; dataOfCurrentProperty: any; }) {
   return {
-    valueInput: state.valueInput,
-    showResult: state.showResult,
-    foundLocation: state.foundLocation,
     favoritesList: state.favoritesList,
-    data: state.data,
-    error: state.error,
-    checkForSearch: state.checkForSearch,
-    showError: state.showError,
-    responseProperty: state.responseProperty,
     dataOfCurrentProperty: state.dataOfCurrentProperty,
   };
 }
 
 export default connect(mapStateToProps, {
+  addToFavorite,
+  deleteFromFavorite
 })(CurrentPropertyPage);

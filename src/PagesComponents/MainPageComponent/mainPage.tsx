@@ -7,18 +7,19 @@ import { style } from './style'
 import SearchResult from '../СomponentsAssistants/searchResultElem/searchResultElem'
 
 
-class MainPage extends React.Component <{valueInput:any,getRequest:any,showResult:any,foundLocation:any,navigation:any,showError:any,error:any,addValueInput:any,createFavListFromAsyncStorage:any }>{
+class MainPage extends React.Component <{valueInput:string, getRequest:any, showResult:boolean, foundLocation:string, navigation:any, showError:boolean, error:string, addValueInput:any, createFavListFromAsyncStorage:any }>{
  
   componentDidMount() {
-    getData().then((value)=>{this.props.createFavListFromAsyncStorage(value)}); 
+    getData().then((value)=>{this.props.createFavListFromAsyncStorage(value)});  
   }
 
   static navigationOptions = {
     title: 'Property Cross',
     headerStyle: {
-      backgroundColor: '#f4511e',
+      backgroundColor: '#3D6E91',
     },
     headerTitleStyle: {
+      fontFamily: 'sans-serif',
       fontWeight: 'bold',
     },
   };
@@ -63,6 +64,7 @@ class MainPage extends React.Component <{valueInput:any,getRequest:any,showResul
           <Button
           title="Search"
           onPress={() => this.onSearchClick()}
+          
         />
          {this.showSearchReasult()}
         </View>
@@ -71,7 +73,7 @@ class MainPage extends React.Component <{valueInput:any,getRequest:any,showResul
   }
 }
 
-function mapStateToProps(state: { valueInput: any; showResult: any; foundLocation: any; favoritesList: any; data: any; error: any; checkForSearch: any; showError: any; responseProperty: any; }) {
+function mapStateToProps(state: { valueInput: string; showResult: boolean; foundLocation: string; favoritesList: any; data: any; error: string; checkForSearch: any; showError: boolean; responseProperty: any; }) {
   return {
     valueInput: state.valueInput,
     showResult: state.showResult,

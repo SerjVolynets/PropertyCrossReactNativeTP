@@ -1,9 +1,9 @@
-import {AsyncStorage} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage'
 
   async function getData():Promise<any>{
-   const value:any =  await AsyncStorage.getItem('favorites ')
-        let res = JSON.parse(value);
-        return res;
+   const value:any =  await AsyncStorage.getItem('favorites')
+        let result = JSON.parse(value);
+        return result;
   }
 
   export default getData;

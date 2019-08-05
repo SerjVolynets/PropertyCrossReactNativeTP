@@ -11,16 +11,17 @@ class SearchResultPage extends React.Component <{responseProperty: any,addDataWi
   static navigationOptions = {
     title: 'Back to Main Page',
     headerStyle: {
-      backgroundColor: '#f4511e',
+      backgroundColor: '#3D6E91',
     },
     headerTitleStyle: {
       fontWeight: 'bold',
+      fontFamily: 'sans-serif'
     },
   };
 
   renderPart = () => {
     return (
-      this.props.responseProperty.map((obj: { img_url: any; price: any; title: any; latitude: any; longitude: any;  }, index: any) => (
+      this.props.responseProperty.map((obj: { img_url: string; price: number; title: string; latitude: number; longitude: number;  }, index: number) => (
           <TouchableOpacity onPress={() => (this.props.addDataWithCurrentProperty(index), this.props.navigation.navigate('CurrentPage'))} key={obj.latitude+index}>
           <ListResultToken
             key={obj.longitude + index}
@@ -42,16 +43,10 @@ class SearchResultPage extends React.Component <{responseProperty: any,addDataWi
   }
 }
 
-function mapStateToProps(state: { valueInput: any; showResult: any; foundLocation: any; favoritesList: any; data: any; error: any; checkForSearch: any; showError: any; responseProperty: any; }) {
+function mapStateToProps(state: { favoritesList: any; data: any; responseProperty: any; }) {
   return {
-    valueInput: state.valueInput,
-    showResult: state.showResult,
-    foundLocation: state.foundLocation,
     favoritesList: state.favoritesList,
     data: state.data,
-    error: state.error,
-    checkForSearch: state.checkForSearch,
-    showError: state.showError,
     responseProperty: state.responseProperty
   };
 }

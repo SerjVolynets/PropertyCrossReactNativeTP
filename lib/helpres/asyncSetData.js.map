@@ -1,0 +1,1 @@
+{"version":3,"file":"asyncSetData.js","sourceRoot":"","sources":["../../src/helpres/asyncSetData.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,yEAAgE;AAE9D,SAAe,OAAO,CAAC,KAAa;;QAClC,IAAI;YACA,MAAM,uBAAY,CAAC,OAAO,CAAC,WAAW,EAAE,KAAK,CAAC,CAAC;SAChD;QAAC,OAAO,KAAK,EAAE;YACd,KAAK,CAAC,QAAQ,GAAG,KAAK,CAAC,CAAC;SACzB;IACL,CAAC;CAAA;AAEH,kBAAe,OAAO,CAAC"}

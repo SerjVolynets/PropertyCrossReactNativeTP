@@ -6,6 +6,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default (props: { onPress: ((event: import("react-native").GestureResponderEvent) => void) | undefined; name: React.ReactNode; }) => (
   <TouchableOpacity style={style.mainContainerStyle}>
-      <Text  onPress={props.onPress} style={style.textFoundCityStyle}> - {props.name} - </Text>
+      <Text  onPress={props.onPress} style={style.textFoundCityStyle}>  {props.name}  </Text>
   </TouchableOpacity>
 );

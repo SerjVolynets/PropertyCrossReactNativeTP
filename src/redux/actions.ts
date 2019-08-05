@@ -5,7 +5,7 @@ export const addValueInput = (value: any) => ({
     payload: value,
   });
 
-export const onSuccessfulRequest = (responseProperty: any, foundLocation: any) => ({
+export const onSuccessfulRequest = (responseProperty: any, foundLocation: string) => ({
   type: types.ON_SUCCESSFUL_REQUEST,
   payload: {
     responseProperty,
@@ -39,4 +39,19 @@ export function getRequest(stateLocation: any) {
 export const createFavListFromAsyncStorage = (value:any) => ({
   type: types.CREATE_FAV_LIST_FROM_ASYNC_STORAGE,
   payload: value
-})
+});
+
+export const addToFavorite = () => ({
+  type: types.ADD_FAVORITE,
+  payload: '',
+});
+
+export const deleteFromFavorite = () => ({
+  type: types.REMOVE_FAVORITE,
+  payload: '',
+});
+
+export const removeFavorite = (index: any) => ({
+  type: types.REMOVE_CURRENT_FAVORITE,
+  payload: index,
+});
